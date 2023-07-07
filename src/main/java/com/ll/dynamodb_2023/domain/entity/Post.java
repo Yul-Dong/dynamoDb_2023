@@ -1,8 +1,10 @@
-package com.ll.dynamodb_2023;
+package com.ll.dynamodb_2023.domain.entity;
 
 import lombok.*;
 import software.amazon.awssdk.enhanced.dynamodb.mapper.annotations.DynamoDbBean;
 import software.amazon.awssdk.enhanced.dynamodb.mapper.annotations.DynamoDbPartitionKey;
+
+import java.util.UUID;
 
 @DynamoDbBean
 @Getter
@@ -10,14 +12,13 @@ import software.amazon.awssdk.enhanced.dynamodb.mapper.annotations.DynamoDbParti
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class MyClass {
-
-    private Long id;
-    private String name;
-    private String password;
+public class Post {
+    private UUID id;
+    private String createDate;
+    private String subject;
 
     @DynamoDbPartitionKey
-    public Long getId() {
+    public UUID getId() {
         return id;
     }
 }
