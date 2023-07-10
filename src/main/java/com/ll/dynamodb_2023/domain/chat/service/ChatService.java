@@ -5,6 +5,8 @@ import com.ll.dynamodb_2023.domain.chat.repository.ChatMessageRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class ChatService {
@@ -18,5 +20,9 @@ public class ChatService {
                         .message(message)
                         .build()
         );
+    }
+
+    public List<ChatMessage> findChatMessagesByChatRoomId(long chatRoomId) {
+        return chatMessageRepository.findByChatRoomId(chatRoomId);
     }
 }

@@ -9,6 +9,7 @@ import software.amazon.awssdk.enhanced.dynamodb.mapper.BeanTableSchema;
 import software.amazon.awssdk.enhanced.dynamodb.model.PutItemEnhancedRequest;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.UUID;
 
 @Repository
@@ -29,5 +30,16 @@ public class ChatMessageRepository {
         table.putItem(putItemEnhancedRequest);
 
         return chatMessage;
+    }
+
+    public List<ChatMessage> findByChatRoomId(long chatRoomId) {
+        DynamoDbTable<ChatMessage> table = dynamoDbEnhancedClient.table(TABLE_NAME, BeanTableSchema.create(ChatMessage.class));
+
+        return table
+                .scan()
+                .items()
+                .stream()
+                .filter(chatMessage -> chatMessage.getChatRoomId() == chatRoomId)
+                .toList();
     }
 }
