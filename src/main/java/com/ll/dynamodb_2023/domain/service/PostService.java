@@ -5,6 +5,8 @@ import com.ll.dynamodb_2023.domain.repository.PostRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class PostService {
@@ -17,5 +19,9 @@ public class PostService {
                         .subject(subject)
                         .build()
         );
+    }
+
+    public List<Post> findAll() {
+        return postRepository.findAll();
     }
 }

@@ -13,12 +13,12 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Post {
-    private UUID id;
+    private String id;
     private String createDate;
     private String subject;
 
     @DynamoDbPartitionKey
-    public UUID getId() {
+    public String getId() {
         return id;
     }
 }
