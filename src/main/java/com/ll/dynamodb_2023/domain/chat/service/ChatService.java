@@ -5,9 +5,6 @@ import com.ll.dynamodb_2023.domain.chat.repository.ChatMessageRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDateTime;
-import java.util.UUID;
-
 @Service
 @RequiredArgsConstructor
 public class ChatService {
@@ -17,9 +14,7 @@ public class ChatService {
         return chatMessageRepository.save(
                 ChatMessage
                         .builder()
-                        .id(UUID.randomUUID().toString())
                         .chatRoomId(chatRoomId)
-                        .createDate(LocalDateTime.now().toString())
                         .message(message)
                         .build()
         );
