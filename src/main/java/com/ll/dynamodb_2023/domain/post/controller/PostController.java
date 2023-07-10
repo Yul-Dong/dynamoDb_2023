@@ -1,7 +1,7 @@
-package com.ll.dynamodb_2023.domain.controller;
+package com.ll.dynamodb_2023.domain.post.controller;
 
-import com.ll.dynamodb_2023.domain.entity.Post;
-import com.ll.dynamodb_2023.domain.service.PostService;
+import com.ll.dynamodb_2023.domain.post.entity.Post;
+import com.ll.dynamodb_2023.domain.post.service.PostService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

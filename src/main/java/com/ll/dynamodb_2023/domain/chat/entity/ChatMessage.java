@@ -1,11 +1,9 @@
-package com.ll.dynamodb_2023.domain.entity;
+package com.ll.dynamodb_2023.domain.chat.entity;
 
 import lombok.*;
 import software.amazon.awssdk.enhanced.dynamodb.mapper.annotations.DynamoDbBean;
 import software.amazon.awssdk.enhanced.dynamodb.mapper.annotations.DynamoDbPartitionKey;
 import software.amazon.awssdk.enhanced.dynamodb.mapper.annotations.DynamoDbSortKey;
-
-import java.util.UUID;
 
 @DynamoDbBean
 @Getter
@@ -13,14 +11,15 @@ import java.util.UUID;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Post {
+public class ChatMessage {
     private String id;
+    private Long chatRoomId;
     private String createDate;
-    private String subject;
+    private String message;
 
     @DynamoDbPartitionKey
-    public String getId() {
-        return id;
+    public Long getChatRoomId() {
+        return chatRoomId;
     }
 
     @DynamoDbSortKey

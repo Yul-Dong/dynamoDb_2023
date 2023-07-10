@@ -1,6 +1,6 @@
-package com.ll.dynamodb_2023.domain.repository;
+package com.ll.dynamodb_2023.domain.post.repository;
 
-import com.ll.dynamodb_2023.domain.entity.Post;
+import com.ll.dynamodb_2023.domain.post.entity.Post;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 import software.amazon.awssdk.enhanced.dynamodb.DynamoDbEnhancedClient;
