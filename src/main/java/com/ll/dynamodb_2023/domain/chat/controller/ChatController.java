@@ -24,4 +24,10 @@ public class ChatController {
     public List<ChatMessage> messages(@PathVariable long chatRoomId) {
         return chatService.findChatMessagesByChatRoomId(chatRoomId);
     }
+
+    @GetMapping("/{chatRoomId}/messages/{createDate}")
+    @ResponseBody
+    public List<ChatMessage> messages(@PathVariable long chatRoomId, @PathVariable String createDate) {
+        return chatService.findChatMessagesByChatRoomIdAndCreateDateStartsWith(chatRoomId, createDate);
+    }
 }
