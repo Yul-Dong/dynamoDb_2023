@@ -46,12 +46,11 @@ public class PostRepository {
         return scan.items().stream().toList();
     }
 
-    public Optional<Post> findByIdAndCreateDate(String id, String createDate) {
+    public Optional<Post> findById(String id) {
         DynamoDbTable<Post> table = dynamoDbEnhancedClient.table(TABLE_NAME, TableSchema.fromBean(Post.class));
 
         Key key = Key.builder()
                 .partitionValue(id)
-                .sortValue(createDate)
                 .build();
 
         Post post = table.getItem(

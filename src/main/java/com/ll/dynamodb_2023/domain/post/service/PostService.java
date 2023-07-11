@@ -26,7 +26,7 @@ public class PostService {
         return postRepository.findAll();
     }
 
-    public Optional<Post> findByIdAndCreateDate(String id, String createDate) {
-        return postRepository.findByIdAndCreateDate(id, createDate);
+    public Optional<Post> findById(String id) {
+        return postRepository.findById(id);
     }
 }

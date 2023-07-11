@@ -22,9 +22,4 @@ public class Post {
     public String getId() {
         return id;
     }
-
-    @DynamoDbSortKey
-    public String getCreateDate() {
-        return createDate;
-    }
 }

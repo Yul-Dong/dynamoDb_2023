@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import java.util.List;
 
 @Controller
-@RequestMapping("/post")
+@RequestMapping("/posts")
 @RequiredArgsConstructor
 public class PostController {
     private final PostService postService;
@@ -23,15 +23,15 @@ public class PostController {
         return postService.write("제목");
     }
 
-    @GetMapping("/all")
+    @GetMapping("all")
     @ResponseBody
     public List<Post> posts() {
         return postService.findAll();
     }
 
-    @GetMapping("{id}/{createDate}")
+    @GetMapping("{id}")
     @ResponseBody
-    public Post post(@PathVariable String id, @PathVariable String createDate) {
-        return postService.findByIdAndCreateDate(id, createDate).orElse(null);
+    public Post post(@PathVariable String id) {
+        return postService.findById(id).orElse(null);
     }
 }
